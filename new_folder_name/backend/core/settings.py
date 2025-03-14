@@ -25,6 +25,8 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "18.118.113.81",  # Thêm địa chỉ IP của bạn vào đây
     "18.118.113.81:8000",
+    'ec2-18-118-113-81.us-east-2.compute.amazonaws.com',
+    'ec2-18-118-113-81.us-east-2.compute.amazonaws.com:8000',
 ]
 
 
