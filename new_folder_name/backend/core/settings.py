@@ -113,7 +113,28 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://my-ssps-deploy.vercel.app",  # Chỉ cho phép frontend của bạn
+]
+CORS_ALLOW_METHODS = [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS",
+]
+
+CORS_ALLOW_HEADERS = [
+    "authorization",
+    "content-type",
+    "x-csrftoken",
+    "x-requested-with",
+    "referer",  # Cần thêm nếu bạn gặp lỗi strict-origin-when-cross-origin
+]
+
 
 ROOT_URLCONF = 'core.urls'
 
