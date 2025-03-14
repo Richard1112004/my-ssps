@@ -23,14 +23,11 @@ function MyTable() {
         access: localStorage.getItem('access'),
       }
 
-      const response = await axios.get(
-        'http://localhost:8000/api/prints/orders/',
-        {
-          headers: {
-            Authorization: `Bearer ${tokens.access}`,
-          },
+      const response = await axios.get('/api/prints/orders/', {
+        headers: {
+          Authorization: `Bearer ${tokens.access}`,
         },
-      )
+      })
 
       setDocuments(response.data)
     } catch (error) {

@@ -78,7 +78,7 @@ const FileUpload2 = () => {
   }
   const handleConfirm = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/prints/orders/', {
+      const response = await fetch('/api/prints/orders/', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${accessToken}`,

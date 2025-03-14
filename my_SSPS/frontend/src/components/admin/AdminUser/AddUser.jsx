@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const AddUser = () => {
   const [formData, setFormData] = useState({
@@ -11,43 +11,43 @@ const AddUser = () => {
     day_of_birth: '',
     phone_number: '',
     balance: '',
-  });
+  })
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
   const handleFileChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       image: e.target.files[0],
-    }));
-  };
+    }))
+  }
 
   const handleSendAddUser = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const payload = new FormData();
+    const payload = new FormData()
     Object.keys(formData).forEach((key) => {
-      payload.append(key, formData[key]);
-    });
+      payload.append(key, formData[key])
+    })
 
-    const url = 'http://localhost:8000/api/users/';
+    const url = '/api/users/'
     try {
       const response = await fetch(url, {
         method: 'POST',
         body: payload,
-      });
-      const result = await response.json();
-      console.log(result);
+      })
+      const result = await response.json()
+      console.log(result)
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error)
     }
-  };
+  }
 
   const handleCancel = () => {
     setFormData({
@@ -59,8 +59,8 @@ const AddUser = () => {
       day_of_birth: '',
       phone_number: '',
       balance: '',
-    });
-  };
+    })
+  }
 
   return (
     <div className="mt-5">
@@ -167,7 +167,7 @@ const AddUser = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AddUser;
+export default AddUser

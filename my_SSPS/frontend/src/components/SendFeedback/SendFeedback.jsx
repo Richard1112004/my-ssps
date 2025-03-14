@@ -32,7 +32,7 @@ const Feedback = () => {
       rating: rating,
     }
 
-    const url = 'http://localhost:8000/api/reports/'
+    const url = '/api/reports/'
     const tokens = {
       refresh: localStorage.getItem('refresh'),
       access: localStorage.getItem('access'),
@@ -69,7 +69,7 @@ const Feedback = () => {
             Đóng góp của bạn là vô cùng quan trọng và cần thiết trong quá trình
             phát triển của chúng tôi.
           </p>
-          
+
           <div className="d-flex justify-content-center mb-4">
             <div
               className={`d-flex align-items-center me-3 ${
@@ -162,14 +162,13 @@ const Feedback = () => {
             onChange={(e) => setContent(e.target.value)}
           ></textarea>
           {/* <button className="btn btn-primary button-feedback" onClick={handleSend}>Gửi ngay</button> */}
-          <button 
-            className="btn btn-primary button-feedback button-feedback" 
-            onClick={handleSend} 
+          <button
+            className="btn btn-primary button-feedback button-feedback"
+            onClick={handleSend}
             disabled={isSending}
           >
-  {isSending ? 'Đang gửi...' : 'Gửi ngay'}
-</button>
-
+            {isSending ? 'Đang gửi...' : 'Gửi ngay'}
+          </button>
         </div>
       </div>
     </div>

@@ -35,7 +35,7 @@ function BuyPrintingPaperBody() {
       amount: paperNo,
     }
 
-    const url = 'http://localhost:8000/api/buys/orders/'
+    const url = '/api/buys/orders/'
     const tokens = {
       refresh: localStorage.getItem('refresh'),
       access: localStorage.getItem('access'),
