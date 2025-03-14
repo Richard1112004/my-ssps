@@ -11,7 +11,7 @@ const Profile = () => {
   const [receiveOrder, setReceiveOrder] = useState(false)
   const navigate = useNavigate()
   useEffect(() => {
-    const url = 'http://18.118.113.81:8000/api/users/profile/'
+    const url = '/api/users/profile/'
     fetch(url, {
       method: 'GET',
       headers: {
@@ -30,7 +30,7 @@ const Profile = () => {
   }, [receiveData])
 
   useEffect(() => {
-    const url2 = 'http://18.118.113.81:8000/api/buys/orders/'
+    const url2 = '/api/buys/orders/'
     fetch(url2, {
       method: 'GET',
       headers: {
@@ -46,7 +46,7 @@ const Profile = () => {
   }, [receiveLog])
 
   useEffect(() => {
-    const url3 = 'http://18.118.113.81:8000/api/prints/orders/'
+    const url3 = '/api/prints/orders/'
     fetch(url3, {
       method: 'GET',
       headers: {

@@ -24,7 +24,7 @@ function Register() {
 
   const login = async (data) => {
     try {
-      await axios.post('http://18.118.113.81:8000/api/users/register/', {
+      await axios.post('/api/users/register/', {
         email: data.email,
         password: data.password,
         name: data.name,

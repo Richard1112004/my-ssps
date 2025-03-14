@@ -35,16 +35,13 @@ const FileUpload2 = () => {
 
   const fetchBalance = async () => {
     try {
-      const response = await fetch(
-        'http://18.118.113.81:8000/api/users/balance/',
-        {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${accessToken}`, // Thêm token vào header nếu cần
-            'Content-Type': 'application/json',
-          },
+      const response = await fetch('/api/users/balance/', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${accessToken}`, // Thêm token vào header nếu cần
+          'Content-Type': 'application/json',
         },
-      )
+      })
 
       if (!response.ok) {
         // Xử lý lỗi từ server
@@ -60,13 +57,10 @@ const FileUpload2 = () => {
   }
   const fetchPrinter = async () => {
     try {
-      const response = await fetch(
-        'http://18.118.113.81:8000/api/printers/status_printers/',
-        {
-          method: 'POST',
-          body: JSON.stringify({ status: 'active' }),
-        },
-      )
+      const response = await fetch('/api/printers/status_printers/', {
+        method: 'POST',
+        body: JSON.stringify({ status: 'active' }),
+      })
 
       if (!response.ok) {
         // Xử lý lỗi từ server

@@ -17,14 +17,11 @@ function PrintingImple() {
   const getBalance = async () => {
     try {
       const access = localStorage.getItem('access')
-      const res = await axios.get(
-        'http://18.118.113.81:8000/api/users/reset-all-balance/',
-        {
-          headers: {
-            Authorization: `Bearer ${access}`,
-          },
+      const res = await axios.get('/api/users/reset-all-balance/', {
+        headers: {
+          Authorization: `Bearer ${access}`,
         },
-      )
+      })
       setBalance(res.data)
       toast.success('reset balance success!')
     } catch (error) {
@@ -36,7 +33,7 @@ function PrintingImple() {
     try {
       const access = localStorage.getItem('access')
       await axios.post(
-        'http://18.118.113.81:8000/api/users/paper/',
+        '/api/users/paper/',
         {
           amount: data.amount,
         },
@@ -61,7 +58,7 @@ function PrintingImple() {
       const access = localStorage.getItem('access')
 
       await axios.post(
-        'http://18.118.113.81:8000/api/buys/prices/',
+        '/api/buys/prices/',
         {
           price: data.price,
         },
@@ -86,7 +83,7 @@ function PrintingImple() {
       const access = localStorage.getItem('access')
 
       await axios.post(
-        'http://18.118.113.81:8000/api/users/reset-date/',
+        '/api/users/reset-date/',
         {
           resetDate: data.resetDate,
         },

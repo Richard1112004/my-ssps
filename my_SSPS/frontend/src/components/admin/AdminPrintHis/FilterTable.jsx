@@ -57,7 +57,7 @@ function MyTable() {
       print_id: info.id,
       status: 'success',
     }
-    const url = 'http://18.118.113.81:8000/api/prints/update/'
+    const url = '/api/prints/update/'
 
     axios
       .patch(url, UpdateContent)

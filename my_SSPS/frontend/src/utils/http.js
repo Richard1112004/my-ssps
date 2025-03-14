@@ -3,12 +3,9 @@ import axios from 'axios'
 const refreshToken = async () => {
   const refresh_token = localStorage.getItem('refresh')
   try {
-    const res = await axios.post(
-      'http://18.118.113.81:8000/api/users/token/refresh/',
-      {
-        refresh_token,
-      },
-    )
+    const res = await axios.post('/api/users/token/refresh/', {
+      refresh_token,
+    })
     const access = res.data.access
     localStorage.setItem('access', access)
     return access
@@ -21,7 +18,7 @@ const refreshToken = async () => {
 let refreshTokenRequest = null
 
 const instance = axios.create({
-  baseURL: 'http://18.118.113.81:8000/api/',
+  baseURL: '/api/',
 })
 
 instance.interceptors.request.use(

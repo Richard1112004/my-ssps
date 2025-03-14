@@ -24,14 +24,11 @@ const HomeStudent = () => {
   const getStatus = async () => {
     try {
       const access = localStorage.getItem('access')
-      const res = await axios.get(
-        'http://18.118.113.81:8000/api/users/profile/',
-        {
-          headers: {
-            Authorization: `Bearer ${access}`,
-          },
+      const res = await axios.get('/api/users/profile/', {
+        headers: {
+          Authorization: `Bearer ${access}`,
         },
-      )
+      })
       localStorage.setItem('name', res.data.name)
       console.log(res.data)
     } catch (error) {

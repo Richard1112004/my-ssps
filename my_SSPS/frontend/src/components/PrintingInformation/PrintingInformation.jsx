@@ -30,7 +30,7 @@ function PrintingInformation() {
       const access = localStorage.getItem('access')
 
       await axios.post(
-        'http://18.118.113.81:8000/api/printers/',
+        '/api/printers/',
         {
           model: data.model,
           brand: data.brand,
@@ -81,7 +81,7 @@ function PrintingInformation() {
       const id = localStorage.getItem('printId')
 
       await axios.put(
-        'http://18.118.113.81:8000/api/printers/',
+        '/api/printers/',
         {
           id: id,
           model: data.model,
@@ -121,7 +121,7 @@ function PrintingInformation() {
   const getPrint = async () => {
     try {
       const access = localStorage.getItem('access')
-      const res = await axios.get('http://18.118.113.81:8000/api/printers/', {
+      const res = await axios.get('/api/printers/', {
         headers: {
           Authorization: `Bearer ${access}`,
         },
@@ -153,7 +153,7 @@ function PrintingInformation() {
     }
     try {
       const access = localStorage.getItem('access')
-      await axios.delete(`http://18.118.113.81:8000/api/printers/${id}/`, {
+      await axios.delete(`/api/printers/${id}/`, {
         headers: {
           Authorization: `Bearer ${access}`,
         },

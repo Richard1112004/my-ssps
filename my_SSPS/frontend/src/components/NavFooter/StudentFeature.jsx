@@ -16,14 +16,11 @@ function Setting() {
           refresh: localStorage.getItem('refresh'),
           access: localStorage.getItem('access'),
         }
-        const response = await axios.get(
-          'http://18.118.113.81:8000/api/users/profile/',
-          {
-            headers: {
-              Authorization: `Bearer ${tokens.access}`,
-            },
+        const response = await axios.get('/api/users/profile/', {
+          headers: {
+            Authorization: `Bearer ${tokens.access}`,
           },
-        )
+        })
         // console.log(response.data) // Handle the response data as needed
         setBalance(response.data.balance)
       } catch (error) {
@@ -75,14 +72,11 @@ function StudentFeature() {
           refresh: localStorage.getItem('refresh'),
           access: localStorage.getItem('access'),
         }
-        const response = await axios.get(
-          'http://18.118.113.81:8000/api/users/profile/',
-          {
-            headers: {
-              Authorization: `Bearer ${tokens.access}`,
-            },
+        const response = await axios.get('/api/users/profile/', {
+          headers: {
+            Authorization: `Bearer ${tokens.access}`,
           },
-        )
+        })
         console.log(response.data) // Handle the response data as needed
         setUsername(response.data.name)
       } catch (error) {

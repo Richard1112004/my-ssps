@@ -20,13 +20,10 @@ function Login() {
 
   const login = async (data) => {
     try {
-      const response = await axios.post(
-        'http://18.118.113.81:8000/api/users/login/',
-        {
-          email: data.email,
-          password: data.password,
-        },
-      )
+      const response = await axios.post('/api/users/login/', {
+        email: data.email,
+        password: data.password,
+      })
       const user = response.data
       if (user && user.access) {
         localStorage.setItem('access', user.access)
@@ -174,7 +171,7 @@ function Login() {
                 Đăng kí
               </Link>
               <Link
-                to="http://18.118.113.81:8000/password-reset/"
+                to="/password-reset/"
                 className="text-blue-800 no-underline text-end w-full mt-3"
               >
                 Quên mật khẩu?

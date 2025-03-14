@@ -163,7 +163,7 @@ function MyTable() {
   useEffect(() => {
     const fetchTokensAndData = async () => {
       try {
-        // const loginResponse = await axios.post('http://18.118.113.81:8000/api/users/login/', {
+        // const loginResponse = await axios.post('/api/users/login/', {
         //   email: 'yennhi@hcmut.edu.vn',
         //   password: '12345',
         // });
@@ -173,14 +173,11 @@ function MyTable() {
         }
         setHeaders(tokens)
 
-        const userResponse = await axios.get(
-          'http://18.118.113.81:8000/api/users',
-          {
-            headers: {
-              Authorization: `Bearer ${tokens.access}`,
-            },
+        const userResponse = await axios.get('/api/users', {
+          headers: {
+            Authorization: `Bearer ${tokens.access}`,
           },
-        )
+        })
         console.log(userResponse.data)
         setDocumentsList(userResponse.data)
       } catch (error) {
@@ -196,7 +193,7 @@ function MyTable() {
   // useEffect(()=>{
   //   const fetchUser = async () => {
   //   try{
-  //   const fetchData = await axios.get('http://18.118.113.81:8000/api/users');
+  //   const fetchData = await axios.get('/api/users');
   //   setDocumentsList(fetchData.data);
   //   }catch(error){
   //     console.error('Error fetching data:', error);

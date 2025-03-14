@@ -20,9 +20,7 @@ function BuyPrintingPaperBody() {
   useEffect(() => {
     const fetchPrice = async () => {
       try {
-        const response = await axios.get(
-          'http://18.118.113.81:8000/api/buys/current-price/',
-        )
+        const response = await axios.get('/api/buys/current-price/')
         setPrice(response.data.price)
       } catch (error) {
         console.error('Error fetching data:', error)

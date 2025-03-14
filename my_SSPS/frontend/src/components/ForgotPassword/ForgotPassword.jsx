@@ -16,9 +16,7 @@ function ForgotPassword() {
 
   const getToken = async () => {
     try {
-      const response = await axios.get(
-        'http://18.118.113.81:8000/password-reset/',
-      )
+      const response = await axios.get('/password-reset/')
 
       const html = response.data
       const parser = new DOMParser()
@@ -43,7 +41,7 @@ function ForgotPassword() {
     try {
       const a = localStorage.getItem('a')
       const response2 = await axios.post(
-        'http://18.118.113.81:8000/password-reset/',
+        '/password-reset/',
         {
           email: data.email,
         },
