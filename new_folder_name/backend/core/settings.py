@@ -116,8 +116,15 @@ MIDDLEWARE = [
 # CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://my-ssps-deploy.vercel.app",  # Chỉ cho phép frontend của bạn
+    "https://my-ssps-deploy.vercel.app",
+    "http://18.118.113.81:8000",  # Allow HTTP (not secure, only for testing)
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://my-ssps-deploy.vercel.app",
+    "http://18.118.113.81:8000",
+]
+
 CORS_ALLOW_METHODS = [
     "GET",
     "POST",
