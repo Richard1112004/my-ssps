@@ -1,63 +1,66 @@
-import React, { useEffect, useState } from "react";
-import "./BuyPrintingPaper.css";
-import Navbar from "../NavFooter/NavBar";
-import Footer from "../NavFooter/Footer";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import './BuyPrintingPaper.css'
+import Navbar from '../NavFooter/NavBar'
+import Footer from '../NavFooter/Footer'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 function BuyPrintingPaperBody() {
-  const navigate = useNavigate();
-  const [paperNo, setPaperNo] = useState(0);
-  const [price, setPrice] = useState(-1);
-  const [isSending, setIsSending] = useState(false);  // New state for tracking sending status
+  const navigate = useNavigate()
+  const [paperNo, setPaperNo] = useState(0)
+  const [price, setPrice] = useState(-1)
+  const [isSending, setIsSending] = useState(false) // New state for tracking sending status
 
   const handleChange = (event) => {
-    const value = event.target.value;
+    const value = event.target.value
     if (!isNaN(value)) {
-      setPaperNo(value);
+      setPaperNo(value)
     }
-  };
+  }
 
   useEffect(() => {
     const fetchPrice = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/buys/current-price/');
-        setPrice(response.data.price);
+        const response = await axios.get(
+          'http://18.118.113.81:8000/api/buys/current-price/',
+        )
+        setPrice(response.data.price)
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data:', error)
       }
     }
-    fetchPrice();
-  }, []);
+    fetchPrice()
+  }, [])
 
   const handleSend = () => {
-    setIsSending(true);  // Set isSending to true when starting the request
+    setIsSending(true) // Set isSending to true when starting the request
     const payload = {
       amount: paperNo,
-    };
+    }
 
-    const url = 'http://localhost:8000/api/buys/orders/';
+    const url = 'http://localhost:8000/api/buys/orders/'
     const tokens = {
-      refresh: localStorage.getItem("refresh"),
-      access: localStorage.getItem("access"),
-    };
+      refresh: localStorage.getItem('refresh'),
+      access: localStorage.getItem('access'),
+    }
 
-    axios.post(url, payload, {
-      headers: {
-        Authorization: `Bearer ${tokens.access}`,
-      },
-    })
-    .then((res) => {
-      alert('Yêu cầu của bạn đã được gửi. Cảm ơn!');
-      // navigate('/student/profile',{ replace: true });
-    })
-    .catch((error) => {
-      console.error('Error sending:', error);
-      alert('Đã xảy ra lỗi khi gửi. Vui lòng thử lại.');
-    })
-    .finally(() => {
-      setIsSending(false);  // Set isSending to false when request is finished
-    });
-  };
+    axios
+      .post(url, payload, {
+        headers: {
+          Authorization: `Bearer ${tokens.access}`,
+        },
+      })
+      .then((res) => {
+        alert('Yêu cầu của bạn đã được gửi. Cảm ơn!')
+        // navigate('/student/profile',{ replace: true });
+      })
+      .catch((error) => {
+        console.error('Error sending:', error)
+        alert('Đã xảy ra lỗi khi gửi. Vui lòng thử lại.')
+      })
+      .finally(() => {
+        setIsSending(false) // Set isSending to false when request is finished
+      })
+  }
 
   return (
     <div className="container-buyPrintingPaper">
@@ -91,7 +94,7 @@ function BuyPrintingPaperBody() {
               <p className="price">{paperNo * price} VND</p>
             </div>
             {isSending ? (
-              <p className="loading">Đang gửi yêu cầu...</p>  // Show loading message when sending
+              <p className="loading">Đang gửi yêu cầu...</p> // Show loading message when sending
             ) : (
               <input
                 type="submit"
@@ -104,7 +107,7 @@ function BuyPrintingPaperBody() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 function BuyPrintingPaper() {
@@ -112,7 +115,7 @@ function BuyPrintingPaper() {
     <div className="buyPrintingPaper">
       <BuyPrintingPaperBody />
     </div>
-  );
+  )
 }
 
-export default BuyPrintingPaper;
+export default BuyPrintingPaper

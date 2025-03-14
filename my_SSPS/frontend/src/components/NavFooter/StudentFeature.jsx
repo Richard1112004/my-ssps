@@ -17,7 +17,7 @@ function Setting() {
           access: localStorage.getItem('access'),
         }
         const response = await axios.get(
-          'http://127.0.0.1:8000/api/users/profile/',
+          'http://18.118.113.81:8000/api/users/profile/',
           {
             headers: {
               Authorization: `Bearer ${tokens.access}`,
@@ -76,7 +76,7 @@ function StudentFeature() {
           access: localStorage.getItem('access'),
         }
         const response = await axios.get(
-          'http://127.0.0.1:8000/api/users/profile/',
+          'http://18.118.113.81:8000/api/users/profile/',
           {
             headers: {
               Authorization: `Bearer ${tokens.access}`,
@@ -85,7 +85,6 @@ function StudentFeature() {
         )
         console.log(response.data) // Handle the response data as needed
         setUsername(response.data.name)
-        
       } catch (error) {
         console.error('Error fetching username:', error)
       }

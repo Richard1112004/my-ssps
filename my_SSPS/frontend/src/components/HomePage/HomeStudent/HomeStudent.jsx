@@ -8,7 +8,7 @@ import Footer from '../../NavFooter/Footer'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import axios from 'axios'
-  
+
 const HomeStudent = () => {
   const navigate = useNavigate()
   const handleSendFeedbackClick = () => {
@@ -24,11 +24,14 @@ const HomeStudent = () => {
   const getStatus = async () => {
     try {
       const access = localStorage.getItem('access')
-      const res = await axios.get('http://127.0.0.1:8000/api/users/profile/', {
-        headers: {
-          Authorization: `Bearer ${access}`,
+      const res = await axios.get(
+        'http://18.118.113.81:8000/api/users/profile/',
+        {
+          headers: {
+            Authorization: `Bearer ${access}`,
+          },
         },
-      })
+      )
       localStorage.setItem('name', res.data.name)
       console.log(res.data)
     } catch (error) {

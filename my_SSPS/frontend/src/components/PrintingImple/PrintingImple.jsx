@@ -18,7 +18,7 @@ function PrintingImple() {
     try {
       const access = localStorage.getItem('access')
       const res = await axios.get(
-        'http://127.0.0.1:8000/api/users/reset-all-balance/',
+        'http://18.118.113.81:8000/api/users/reset-all-balance/',
         {
           headers: {
             Authorization: `Bearer ${access}`,
@@ -36,7 +36,7 @@ function PrintingImple() {
     try {
       const access = localStorage.getItem('access')
       await axios.post(
-        'http://127.0.0.1:8000/api/users/paper/',
+        'http://18.118.113.81:8000/api/users/paper/',
         {
           amount: data.amount,
         },
@@ -61,7 +61,7 @@ function PrintingImple() {
       const access = localStorage.getItem('access')
 
       await axios.post(
-        'http://127.0.0.1:8000/api/buys/prices/',
+        'http://18.118.113.81:8000/api/buys/prices/',
         {
           price: data.price,
         },
@@ -86,7 +86,7 @@ function PrintingImple() {
       const access = localStorage.getItem('access')
 
       await axios.post(
-        'http://127.0.0.1:8000/api/users/reset-date/',
+        'http://18.118.113.81:8000/api/users/reset-date/',
         {
           resetDate: data.resetDate,
         },

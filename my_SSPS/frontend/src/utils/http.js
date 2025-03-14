@@ -4,7 +4,7 @@ const refreshToken = async () => {
   const refresh_token = localStorage.getItem('refresh')
   try {
     const res = await axios.post(
-      'http://127.0.0.1:8000/api/users/token/refresh/',
+      'http://18.118.113.81:8000/api/users/token/refresh/',
       {
         refresh_token,
       },
@@ -21,7 +21,7 @@ const refreshToken = async () => {
 let refreshTokenRequest = null
 
 const instance = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api/',
+  baseURL: 'http://18.118.113.81:8000/api/',
 })
 
 instance.interceptors.request.use(

@@ -21,7 +21,7 @@ function Login() {
   const login = async (data) => {
     try {
       const response = await axios.post(
-        'http://127.0.0.1:8000/api/users/login/',
+        'http://18.118.113.81:8000/api/users/login/',
         {
           email: data.email,
           password: data.password,
@@ -174,7 +174,7 @@ function Login() {
                 Đăng kí
               </Link>
               <Link
-                to="http://127.0.0.1:8000/password-reset/"
+                to="http://18.118.113.81:8000/password-reset/"
                 className="text-blue-800 no-underline text-end w-full mt-3"
               >
                 Quên mật khẩu?

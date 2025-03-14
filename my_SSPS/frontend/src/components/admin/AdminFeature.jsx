@@ -62,7 +62,7 @@ function AdminFeature() {
           access: localStorage.getItem('access'),
         }
         const response = await axios.get(
-          'http://127.0.0.1:8000/api/users/profile/',
+          'http://18.118.113.81:8000/api/users/profile/',
           {
             headers: {
               Authorization: `Bearer ${tokens.access}`,

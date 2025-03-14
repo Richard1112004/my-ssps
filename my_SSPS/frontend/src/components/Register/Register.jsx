@@ -1,10 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/image.png";
-import image from "../../assets/image (1).png";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { Link, useNavigate } from 'react-router-dom'
+import logo from '../../assets/image.png'
+import image from '../../assets/image (1).png'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { FaUser } from 'react-icons/fa'
 import { MdDriveFileRenameOutline } from 'react-icons/md'
@@ -24,7 +24,7 @@ function Register() {
 
   const login = async (data) => {
     try {
-      await axios.post('http://127.0.0.1:8000/api/users/register/', {
+      await axios.post('http://18.118.113.81:8000/api/users/register/', {
         email: data.email,
         password: data.password,
         name: data.name,
@@ -284,4 +284,4 @@ function Register() {
   )
 }
 
-export default Register;
+export default Register

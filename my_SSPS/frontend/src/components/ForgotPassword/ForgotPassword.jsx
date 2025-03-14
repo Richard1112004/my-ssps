@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/image.png";
-import image from "../../assets/image (1).png";
+import { Link, useNavigate } from 'react-router-dom'
+import logo from '../../assets/image.png'
+import image from '../../assets/image (1).png'
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
@@ -16,7 +16,9 @@ function ForgotPassword() {
 
   const getToken = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/password-reset/')
+      const response = await axios.get(
+        'http://18.118.113.81:8000/password-reset/',
+      )
 
       const html = response.data
       const parser = new DOMParser()
@@ -41,7 +43,7 @@ function ForgotPassword() {
     try {
       const a = localStorage.getItem('a')
       const response2 = await axios.post(
-        'http://127.0.0.1:8000/password-reset/',
+        'http://18.118.113.81:8000/password-reset/',
         {
           email: data.email,
         },
@@ -49,7 +51,7 @@ function ForgotPassword() {
           headers: {
             'X-CSRFToken': a,
           },
-        }
+        },
       )
       toast.success('Đã gửi thành công. Vui lòng kiểm tra email của bạn!!')
       localStorage.setItem('email', data.email)

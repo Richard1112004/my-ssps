@@ -14,11 +14,14 @@ function PrintingStatus() {
   const getPaper = async () => {
     try {
       const access = localStorage.getItem('access')
-      const res = await axios.get('http://127.0.0.1:8000/api/users/paper/', {
-        headers: {
-          Authorization: `Bearer ${access}`,
+      const res = await axios.get(
+        'http://18.118.113.81:8000/api/users/paper/',
+        {
+          headers: {
+            Authorization: `Bearer ${access}`,
+          },
         },
-      })
+      )
       setPaper(res.data.amount)
     } catch (error) {
       console.error(error)
@@ -32,11 +35,14 @@ function PrintingStatus() {
   const getPaperId = async (id) => {
     try {
       const access = localStorage.getItem('access')
-      const res = await axios.get(`http://127.0.0.1:8000/api/printers/${id}`, {
-        headers: {
-          Authorization: `Bearer ${access}`,
+      const res = await axios.get(
+        `http://18.118.113.81:8000/api/printers/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${access}`,
+          },
         },
-      })
+      )
       const paperCount = paper - res.data?.printed_papers
       setStatus((prevStatus) =>
         prevStatus.map((item) =>
@@ -57,7 +63,7 @@ function PrintingStatus() {
   const getStatus = async () => {
     try {
       const access = localStorage.getItem('access')
-      const res = await axios.get('http://127.0.0.1:8000/api/printers/', {
+      const res = await axios.get('http://18.118.113.81:8000/api/printers/', {
         headers: {
           Authorization: `Bearer ${access}`,
         },
@@ -91,7 +97,7 @@ function PrintingStatus() {
       const access = localStorage.getItem('access')
       const newStatus = currentStatus === 'inactive' ? 'active' : 'inactive'
       await axios.patch(
-        'http://127.0.0.1:8000/api/printers/',
+        'http://18.118.113.81:8000/api/printers/',
         {
           id: id,
           status: newStatus,
